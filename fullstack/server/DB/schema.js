@@ -8,4 +8,13 @@ const messageSchema = new mongoose.Schema({
   timestamp: Date,
 });
 
-module.exports = mongoose.model('Message', messageSchema);
+const usersSchema = new mongoose.Schema({
+  userId: String,
+  socket: String,
+  timestamp: Date,
+});
+
+const Modal = mongoose.model('Message', messageSchema);
+const UserModal = mongoose.model('UserModal', usersSchema);
+
+module.exports = {Modal, UserModal}
